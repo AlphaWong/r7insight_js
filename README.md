@@ -55,23 +55,20 @@ export { Logger, LOG_LEVEL, log, warm, error, info };
 
 ```
 
-Features
---------
-
-* Small: ~3k (minified)
-* Cross-browser compatible
-* No external dependencies
-* Simple API
-* AMD and CommonJS support
-
-Quick start
------------
-
-Start [here](https://github.com/rapid7/r7insight_js/wiki/Getting-started), then check out the rest of the wiki.
-
-Don't have an account? Get one [for free](https://www.rapid7.com/products/insightops/try/).
-
-Contact Support
------------
-
-Please email our support team at support@rapid7.com if you need any help.
+# curl
+```console
+curl -X POST \
+  https://us.js.logs.insight.rapid7.com/v1/logs/xxx-xxx-xxx-xxx-xxx-xxx \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 56' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: us.js.logs.insight.rapid7.com' \
+  -H 'User-Agent: PostmanRuntime/7.19.0' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'cache-control: no-cache' \
+  -d '{"event":{"message":"123", "data":"321"},"level":"INFO"}'
+  
+```
