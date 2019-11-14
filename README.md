@@ -31,7 +31,7 @@ const LOG_LEVEL = {
 const Logger = ({ level, message, data }) => {
   return axios.post(`${BASE_URI}${POST_PATH}${LOG_TOKEN}`, {
     level,
-    event: { message, data: JSON.stringify(data) },
+    event: { message, data, stringify: JSON.stringify(data) },
   });
 };
 
@@ -52,7 +52,6 @@ const info = ({ message, data }) => {
 };
 
 export { Logger, LOG_LEVEL, log, warm, error, info };
-
 ```
 
 # curl
