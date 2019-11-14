@@ -25,14 +25,34 @@ const LOG_LEVEL = {
   LOG: 'LOG',
   WARN: 'WARN',
   ERROR: 'ERROR',
-  INFO: 'INFO'
-}
-
-const Logger = ({ level, message, data }) => {
-  return axios.post(`${BASE_URI}${POST_PATH}${LOG_TOKEN}`, { level: LOG_LEVEL.INFO, event: { message, data: JSON.stringify(data) } });
+  INFO: 'INFO',
 };
 
-export { Logger, LOG_LEVEL };
+const Logger = ({ level, message, data }) => {
+  return axios.post(`${BASE_URI}${POST_PATH}${LOG_TOKEN}`, {
+    level,
+    event: { message, data: JSON.stringify(data) },
+  });
+};
+
+const log = (message, data) => {
+  return Logger(LOG_LEVEL.LOG, message, data);
+};
+
+const warm = (message, data) => {
+  return Logger(LOG_LEVEL.WARN, message, data);
+};
+
+const error = (message, data) => {
+  return Logger(LOG_LEVEL.ERROR, message, data);
+};
+
+const info = (message, data) => {
+  return Logger(LOG_LEVEL.INFO, message, data);
+};
+
+export { Logger, LOG_LEVEL, log, warm, error, info };
+
 ```
 
 Features
