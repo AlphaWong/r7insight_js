@@ -5,6 +5,36 @@ Client-side JavaScript logging library for [InsightOps](https://www.rapid7.com/s
 
 [![Build Status](https://travis-ci.org/rapid7/r7insight_js.png?branch=master)](https://travis-ci.org/rapid7/r7insight_js)
 
+# how to use
+```html
+<script src="https://raw.githubusercontent.com/rapid7/r7insight_js/0b3a79fca9dc402767bb6be2ca34b1f16cc05051/product/le.js"></script>
+<script>
+  LE.init({token:'Log token key',region:'us'});
+</script>
+```
+
+# simple code
+```js
+import axios from 'axios';
+
+const LOG_TOKEN = process.env.REACT_APP_INSIGHTOPS_API_KEY;
+const BASE_URI = 'https://us.js.logs.insight.rapid7.com';
+const POST_PATH = '/v1/logs/';
+
+const LOG_LEVEL = {
+  LOG: 'LOG',
+  WARN: 'WARN',
+  ERROR: 'ERROR',
+  INFO: 'INFO'
+}
+
+const Logger = ({ level, message, data }) => {
+  return axios.post(`${BASE_URI}${POST_PATH}${LOG_TOKEN}`, { level: LOG_LEVEL.INFO, event: { message, data: JSON.stringify(data) } });
+};
+
+export { Logger, LOG_LEVEL };
+```
+
 Features
 --------
 
