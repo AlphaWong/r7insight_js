@@ -35,20 +35,20 @@ const Logger = ({ level, message, data }) => {
   });
 };
 
-const log = (message, data) => {
-  return Logger(LOG_LEVEL.LOG, message, data);
+const log = ({ message, data }) => {
+  return Logger({ level: LOG_LEVEL.LOG, message, data });
 };
 
-const warm = (message, data) => {
-  return Logger(LOG_LEVEL.WARN, message, data);
+const warm = ({ message, data }) => {
+  return Logger({ level: LOG_LEVEL.WARN, message, data });
 };
 
-const error = (message, data) => {
-  return Logger(LOG_LEVEL.ERROR, message, data);
+const error = ({ message, data }) => {
+  return Logger({ level: LOG_LEVEL.ERROR, message, data });
 };
 
-const info = (message, data) => {
-  return Logger(LOG_LEVEL.INFO, message, data);
+const info = ({ message, data }) => {
+  return Logger({ level: LOG_LEVEL.INFO, message, data });
 };
 
 export { Logger, LOG_LEVEL, log, warm, error, info };
